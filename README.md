@@ -20,7 +20,6 @@ The Freelance Project Tracking System is a web-based application that allows fre
 - **Tools:** VS Code, MySQL Workbench, GitHub
 
 ---
-
 ## Database Tables
 - **CLIENT** — Stores client information
 - **PROJECT** — Stores projects linked to clients
