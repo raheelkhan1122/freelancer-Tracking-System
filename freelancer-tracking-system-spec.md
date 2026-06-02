@@ -456,3 +456,4 @@ module.exports = db;
 ---
 
 *This specification is based on the Freelance Project Tracking System database project built for the Database Systems Lab course at the University of Kohat.*
+
