@@ -1,0 +1,101 @@
+PaymentID,ProjectID,Amount,PaymentDate,Status,Method
+5001,111,2099.68,2026-05-18,Cleared,PayPal
+5002,143,3939.77,2026-07-01,Cleared,Crypto
+5003,115,2746.9,2026-01-03,Pending,Credit Card
+5004,119,1334.09,2026-08-29,Pending,PayPal
+5005,120,3849.03,2026-07-26,Cleared,Stripe
+5006,160,3821.34,2026-09-28,Refunded,Stripe
+5007,173,3286.36,2026-01-15,Cleared,Credit Card
+5008,120,2310.86,2026-07-10,Cleared,Credit Card
+5009,108,1889.32,2026-04-22,Pending,Stripe
+5010,105,473.07,2026-06-20,Refunded,Bank Transfer
+5011,112,3152.04,2026-05-06,Cleared,Crypto
+5012,171,4780.31,2026-03-08,Refunded,Stripe
+5013,174,3328.82,2026-03-04,Cleared,Crypto
+5014,161,2606.56,2026-08-21,Refunded,Bank Transfer
+5015,144,4915.45,2026-03-24,Cleared,Crypto
+5016,123,387.88,2026-01-02,Cleared,Crypto
+5017,167,3127.07,2026-12-05,Cleared,Stripe
+5018,153,3917.43,2026-11-16,Cleared,Credit Card
+5019,109,1782.52,2026-05-09,Cleared,Stripe
+5020,137,1409.58,2026-07-04,Cleared,Credit Card
+5021,111,2997.15,2026-05-17,Pending,Credit Card
+5022,151,818.97,2026-09-30,Cleared,Credit Card
+5023,172,2008.06,2026-12-29,Cleared,Crypto
+5024,112,3300.92,2026-05-19,Cleared,Bank Transfer
+5025,147,1682.56,2026-08-19,Cleared,Credit Card
+5026,163,1121.63,2026-05-19,Refunded,Bank Transfer
+5027,138,4253.26,2026-09-17,Pending,Crypto
+5028,105,3377.26,2026-07-10,Refunded,Crypto
+5029,149,940.41,2026-08-30,Pending,Stripe
+5030,106,2172.12,2026-11-30,Refunded,Stripe
+5031,137,3811.48,2026-05-27,Cleared,PayPal
+5032,169,1348.01,2026-06-07,Cleared,PayPal
+5033,148,3455.87,2026-08-31,Cleared,Stripe
+5034,137,3935.0,2026-05-20,Cleared,Crypto
+5035,154,4838.09,2026-06-02,Cleared,Crypto
+5036,118,4390.41,2026-02-27,Cleared,Stripe
+5037,148,2861.8,2026-08-21,Pending,Bank Transfer
+5038,137,602.6,2026-07-03,Cleared,Credit Card
+5039,158,4545.47,2026-04-10,Pending,Bank Transfer
+5040,129,4120.18,2026-07-25,Cleared,Bank Transfer
+5041,154,455.63,2026-04-24,Cleared,Credit Card
+5042,131,2053.6,2026-06-02,Pending,Bank Transfer
+5043,141,4667.96,2026-12-05,Cleared,PayPal
+5044,118,383.86,2026-01-04,Cleared,PayPal
+5045,161,2353.29,2026-10-07,Pending,Bank Transfer
+5046,133,1235.14,2026-10-01,Pending,Stripe
+5047,115,3925.63,2026-02-01,Pending,Bank Transfer
+5048,131,2215.16,2026-05-03,Cleared,Bank Transfer
+5049,115,4216.1,2025-12-10,Cleared,Bank Transfer
+5050,166,2960.23,2026-08-17,Cleared,Credit Card
+5051,155,207.51,2026-09-06,Cleared,PayPal
+5052,174,2199.52,2026-04-04,Cleared,Crypto
+5053,147,524.86,2026-07-10,Cleared,Crypto
+5054,165,3974.78,2026-08-09,Refunded,Crypto
+5055,103,2074.18,2026-05-10,Cleared,Credit Card
+5056,133,3787.12,2026-11-29,Cleared,Credit Card
+5057,131,3718.12,2026-04-17,Cleared,Credit Card
+5058,118,412.81,2025-12-26,Cleared,Credit Card
+5059,123,4185.84,2025-12-28,Cleared,PayPal
+5060,118,502.88,2026-01-06,Cleared,Bank Transfer
+5061,138,1167.64,2026-11-20,Cleared,Credit Card
+5062,140,2673.84,2026-05-12,Refunded,Stripe
+5063,133,375.78,2026-11-01,Cleared,Credit Card
+5064,107,4355.83,2026-04-23,Cleared,Credit Card
+5065,116,4036.84,2026-08-05,Cleared,Stripe
+5066,157,4494.26,2026-03-05,Cleared,Stripe
+5067,164,1963.27,2026-01-26,Cleared,Bank Transfer
+5068,155,578.85,2026-09-28,Cleared,Crypto
+5069,138,1741.81,2026-10-19,Pending,Credit Card
+5070,158,3092.58,2026-04-09,Cleared,Credit Card
+5071,158,403.3,2026-04-20,Cleared,Crypto
+5072,156,1517.87,2026-07-04,Refunded,Bank Transfer
+5073,152,1943.89,2026-09-09,Cleared,Bank Transfer
+5074,119,4273.61,2026-07-29,Cleared,Bank Transfer
+5075,117,522.72,2026-02-26,Cleared,Credit Card
+5076,150,4757.44,2026-03-08,Cleared,Crypto
+5077,120,3459.5,2026-07-01,Failed,Stripe
+5078,110,2954.82,2026-10-06,Cleared,Credit Card
+5079,136,1398.14,2026-07-11,Cleared,Bank Transfer
+5080,124,2595.41,2026-04-21,Cleared,Bank Transfer
+5081,134,3919.83,2026-09-12,Refunded,PayPal
+5082,137,3531.11,2026-05-22,Cleared,PayPal
+5083,116,851.5,2026-09-20,Cleared,Stripe
+5084,123,4513.66,2026-02-16,Cleared,Credit Card
+5085,145,3605.79,2026-04-01,Cleared,Crypto
+5086,138,4478.39,2026-11-03,Cleared,Credit Card
+5087,166,1276.36,2026-08-10,Cleared,PayPal
+5088,131,3993.79,2026-04-21,Pending,Crypto
+5089,148,2443.55,2026-10-10,Refunded,Crypto
+5090,112,515.59,2026-05-04,Cleared,Crypto
+5091,153,3891.99,2026-11-13,Cleared,PayPal
+5092,141,3283.23,2026-11-11,Cleared,Credit Card
+5093,117,4414.21,2026-01-28,Cleared,PayPal
+5094,117,2276.57,2026-04-06,Failed,Bank Transfer
+5095,167,934.47,2026-11-30,Pending,PayPal
+5096,145,4747.92,2026-04-05,Cleared,Credit Card
+5097,111,1402.91,2026-04-21,Cleared,Credit Card
+5098,117,3200.11,2026-04-02,Cleared,Crypto
+5099,122,3040.68,2026-04-03,Cleared,PayPal
+5100,122,3361.92,2026-05-04,Cleared,Crypto

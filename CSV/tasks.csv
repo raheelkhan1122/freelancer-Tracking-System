@@ -1,0 +1,201 @@
+TaskID,ProjectID,Title,Description,Deadline,Status
+1001,115,Testing & QA,Execute ui/ux wireframing for project 115.,2026-01-06,Pending
+1002,175,Final Handover,Execute client review for project 175.,2026-08-05,In Progress
+1003,151,Backend Development,Execute ui/ux wireframing for project 151.,2026-09-01,Completed
+1004,132,Testing & QA,Execute final handover for project 132.,2026-07-05,Completed
+1005,116,Final Handover,Execute requirements gathering for project 116.,2026-08-18,Completed
+1006,145,Client Review,Execute deployment for project 145.,2026-05-07,Completed
+1007,109,Deployment,Execute requirements gathering for project 109.,2026-06-16,Completed
+1008,154,Revisions,Execute ui/ux wireframing for project 154.,2026-05-15,Completed
+1009,156,Revisions,Execute frontend development for project 156.,2026-06-13,Completed
+1010,156,Documentation,Execute testing & qa for project 156.,2026-06-19,Completed
+1011,169,Revisions,Execute revisions for project 169.,2026-06-26,Completed
+1012,156,Final Handover,Execute testing & qa for project 156.,2026-05-29,Completed
+1013,142,UI/UX Wireframing,Execute testing & qa for project 142.,2026-09-20,Pending
+1014,158,Revisions,Execute final handover for project 158.,2026-05-11,Pending
+1015,149,Revisions,Execute deployment for project 149.,2026-08-24,Pending
+1016,124,Deployment,Execute testing & qa for project 124.,2026-05-30,Pending
+1017,144,Final Handover,Execute testing & qa for project 144.,2026-03-09,Completed
+1018,172,Documentation,Execute backend development for project 172.,2026-12-28,Pending
+1019,111,Client Review,Execute revisions for project 111.,2026-06-06,Completed
+1020,172,Backend Development,Execute revisions for project 172.,2026-12-04,Pending
+1021,163,UI/UX Wireframing,Execute testing & qa for project 163.,2026-05-07,Pending
+1022,129,Backend Development,Execute testing & qa for project 129.,2026-08-09,Completed
+1023,175,Documentation,Execute documentation for project 175.,2026-07-25,In Progress
+1024,145,Documentation,Execute deployment for project 145.,2026-05-11,Completed
+1025,146,Testing & QA,Execute testing & qa for project 146.,2026-05-12,In Progress
+1026,133,Backend Development,Execute deployment for project 133.,2026-11-13,Pending
+1027,116,Documentation,Execute frontend development for project 116.,2026-08-20,Completed
+1028,125,Revisions,Execute testing & qa for project 125.,2026-02-11,Completed
+1029,168,UI/UX Wireframing,Execute backend development for project 168.,2026-05-23,In Progress
+1030,138,Frontend Development,Execute testing & qa for project 138.,2026-11-01,In Progress
+1031,102,Documentation,Execute frontend development for project 102.,2026-08-09,Completed
+1032,136,Requirements Gathering,Execute documentation for project 136.,2026-07-07,Completed
+1033,138,Revisions,Execute ui/ux wireframing for project 138.,2026-10-17,Pending
+1034,102,Testing & QA,Execute revisions for project 102.,2026-08-13,Completed
+1035,162,Deployment,Execute frontend development for project 162.,2026-08-17,Completed
+1036,107,Revisions,Execute ui/ux wireframing for project 107.,2026-05-10,Completed
+1037,109,Revisions,Execute ui/ux wireframing for project 109.,2026-06-20,Completed
+1038,174,Requirements Gathering,Execute frontend development for project 174.,2026-03-08,Completed
+1039,120,Testing & QA,Execute ui/ux wireframing for project 120.,2026-07-06,Completed
+1040,132,Client Review,Execute final handover for project 132.,2026-07-05,Completed
+1041,129,Documentation,Execute client review for project 129.,2026-07-28,Completed
+1042,158,Testing & QA,Execute final handover for project 158.,2026-05-04,Pending
+1043,155,Final Handover,Execute final handover for project 155.,2026-09-25,Completed
+1044,108,UI/UX Wireframing,Execute backend development for project 108.,2026-05-15,Completed
+1045,128,UI/UX Wireframing,Execute frontend development for project 128.,2026-02-25,Completed
+1046,131,Documentation,Execute ui/ux wireframing for project 131.,2026-06-08,Pending
+1047,121,Client Review,Execute revisions for project 121.,2026-11-11,Completed
+1048,161,Requirements Gathering,Execute backend development for project 161.,2026-09-21,Pending
+1049,137,Testing & QA,Execute revisions for project 137.,2026-06-14,Completed
+1050,110,Testing & QA,Execute final handover for project 110.,2026-10-18,Pending
+1051,126,Documentation,Execute backend development for project 126.,2026-07-14,Pending
+1052,120,UI/UX Wireframing,Execute requirements gathering for project 120.,2026-07-23,Pending
+1053,122,Testing & QA,Execute final handover for project 122.,2026-05-05,Completed
+1054,173,Revisions,Execute ui/ux wireframing for project 173.,2026-01-30,Completed
+1055,160,Client Review,Execute testing & qa for project 160.,2026-11-02,In Progress
+1056,165,Revisions,Execute ui/ux wireframing for project 165.,2026-09-08,In Progress
+1057,106,Deployment,Execute final handover for project 106.,2026-11-15,In Progress
+1058,133,Backend Development,Execute final handover for project 133.,2026-11-20,Pending
+1059,103,Testing & QA,Execute final handover for project 103.,2026-05-18,Completed
+1060,106,Revisions,Execute documentation for project 106.,2026-11-19,Pending
+1061,157,Final Handover,Execute client review for project 157.,2026-03-03,Pending
+1062,163,Deployment,Execute client review for project 163.,2026-05-19,In Progress
+1063,143,UI/UX Wireframing,Execute frontend development for project 143.,2026-06-13,Completed
+1064,143,Revisions,Execute testing & qa for project 143.,2026-06-10,Completed
+1065,152,Documentation,Execute requirements gathering for project 152.,2026-08-17,Completed
+1066,159,Testing & QA,Execute deployment for project 159.,2026-09-22,In Progress
+1067,115,Documentation,Execute requirements gathering for project 115.,2026-01-06,In Progress
+1068,170,Client Review,Execute requirements gathering for project 170.,2026-05-24,Completed
+1069,125,Deployment,Execute final handover for project 125.,2026-02-01,Completed
+1070,164,Requirements Gathering,Execute backend development for project 164.,2026-01-23,In Progress
+1071,135,Frontend Development,Execute testing & qa for project 135.,2026-08-20,Pending
+1072,157,Revisions,Execute ui/ux wireframing for project 157.,2026-02-11,Completed
+1073,104,Backend Development,Execute frontend development for project 104.,2026-05-24,Completed
+1074,140,Documentation,Execute client review for project 140.,2026-06-16,Pending
+1075,112,Revisions,Execute ui/ux wireframing for project 112.,2026-06-10,Pending
+1076,120,Testing & QA,Execute documentation for project 120.,2026-07-16,Completed
+1077,135,Revisions,Execute revisions for project 135.,2026-08-24,Pending
+1078,132,Frontend Development,Execute client review for project 132.,2026-06-24,Completed
+1079,125,Documentation,Execute frontend development for project 125.,2026-01-29,Completed
+1080,109,Client Review,Execute deployment for project 109.,2026-06-24,Completed
+1081,165,Testing & QA,Execute testing & qa for project 165.,2026-09-17,Pending
+1082,175,Frontend Development,Execute revisions for project 175.,2026-07-15,In Progress
+1083,169,Deployment,Execute deployment for project 169.,2026-07-05,Completed
+1084,171,Client Review,Execute revisions for project 171.,2026-01-31,Completed
+1085,142,Backend Development,Execute final handover for project 142.,2026-09-20,Pending
+1086,150,Client Review,Execute requirements gathering for project 150.,2026-02-16,Completed
+1087,141,Client Review,Execute client review for project 141.,2026-12-07,In Progress
+1088,120,Frontend Development,Execute documentation for project 120.,2026-07-16,Pending
+1089,143,UI/UX Wireframing,Execute revisions for project 143.,2026-05-27,Completed
+1090,113,Revisions,Execute requirements gathering for project 113.,2026-12-03,Completed
+1091,119,Frontend Development,Execute ui/ux wireframing for project 119.,2026-08-24,Completed
+1092,161,Testing & QA,Execute deployment for project 161.,2026-09-05,Pending
+1093,151,UI/UX Wireframing,Execute deployment for project 151.,2026-09-03,Completed
+1094,169,Deployment,Execute revisions for project 169.,2026-07-08,Completed
+1095,170,Final Handover,Execute ui/ux wireframing for project 170.,2026-06-06,Completed
+1096,131,Testing & QA,Execute backend development for project 131.,2026-05-24,Pending
+1097,112,UI/UX Wireframing,Execute revisions for project 112.,2026-06-04,Pending
+1098,122,Testing & QA,Execute requirements gathering for project 122.,2026-05-08,Completed
+1099,106,Testing & QA,Execute deployment for project 106.,2026-12-03,Pending
+1100,148,Backend Development,Execute documentation for project 148.,2026-09-26,Pending
+1101,153,Frontend Development,Execute frontend development for project 153.,2026-10-18,Completed
+1102,123,Client Review,Execute final handover for project 123.,2026-02-08,Completed
+1103,131,Final Handover,Execute frontend development for project 131.,2026-05-29,Pending
+1104,130,Testing & QA,Execute revisions for project 130.,2026-01-29,Completed
+1105,133,Revisions,Execute testing & qa for project 133.,2026-10-30,Pending
+1106,170,UI/UX Wireframing,Execute revisions for project 170.,2026-06-02,Completed
+1107,145,Testing & QA,Execute client review for project 145.,2026-05-06,Completed
+1108,133,Backend Development,Execute client review for project 133.,2026-11-06,In Progress
+1109,162,Backend Development,Execute client review for project 162.,2026-08-28,Completed
+1110,174,Final Handover,Execute testing & qa for project 174.,2026-03-17,Completed
+1111,138,Client Review,Execute testing & qa for project 138.,2026-11-08,Completed
+1112,102,Requirements Gathering,Execute final handover for project 102.,2026-08-13,Completed
+1113,164,Backend Development,Execute final handover for project 164.,2026-01-17,In Progress
+1114,146,Backend Development,Execute final handover for project 146.,2026-05-27,Completed
+1115,133,Frontend Development,Execute ui/ux wireframing for project 133.,2026-10-30,Completed
+1116,106,Requirements Gathering,Execute final handover for project 106.,2026-12-04,In Progress
+1117,147,Frontend Development,Execute ui/ux wireframing for project 147.,2026-08-06,Completed
+1118,138,Client Review,Execute frontend development for project 138.,2026-10-29,Completed
+1119,126,Deployment,Execute documentation for project 126.,2026-07-23,Completed
+1120,165,Testing & QA,Execute revisions for project 165.,2026-09-17,Pending
+1121,138,UI/UX Wireframing,Execute revisions for project 138.,2026-10-16,In Progress
+1122,110,Client Review,Execute documentation for project 110.,2026-11-04,Pending
+1123,147,Client Review,Execute requirements gathering for project 147.,2026-08-27,Completed
+1124,134,Revisions,Execute deployment for project 134.,2026-10-05,Pending
+1125,134,Deployment,Execute ui/ux wireframing for project 134.,2026-10-04,In Progress
+1126,130,Final Handover,Execute documentation for project 130.,2026-01-28,Pending
+1127,142,UI/UX Wireframing,Execute revisions for project 142.,2026-09-28,Pending
+1128,139,Client Review,Execute ui/ux wireframing for project 139.,2026-11-20,Completed
+1129,118,Requirements Gathering,Execute testing & qa for project 118.,2026-02-15,Completed
+1130,164,Backend Development,Execute documentation for project 164.,2026-02-09,Pending
+1131,118,Revisions,Execute deployment for project 118.,2026-02-04,Completed
+1132,170,Final Handover,Execute frontend development for project 170.,2026-05-25,Completed
+1133,154,UI/UX Wireframing,Execute revisions for project 154.,2026-05-21,Completed
+1134,153,Deployment,Execute backend development for project 153.,2026-10-28,Pending
+1135,157,Deployment,Execute ui/ux wireframing for project 157.,2026-02-25,Pending
+1136,148,Deployment,Execute requirements gathering for project 148.,2026-09-22,Completed
+1137,151,Backend Development,Execute ui/ux wireframing for project 151.,2026-09-15,Completed
+1138,159,Backend Development,Execute final handover for project 159.,2026-09-22,Completed
+1139,103,Backend Development,Execute frontend development for project 103.,2026-06-10,In Progress
+1140,173,UI/UX Wireframing,Execute documentation for project 173.,2026-02-02,Completed
+1141,127,Backend Development,Execute backend development for project 127.,2026-01-23,Completed
+1142,143,Frontend Development,Execute final handover for project 143.,2026-05-30,Completed
+1143,101,Frontend Development,Execute frontend development for project 101.,2026-05-27,Completed
+1144,170,Frontend Development,Execute ui/ux wireframing for project 170.,2026-05-30,Completed
+1145,104,Deployment,Execute backend development for project 104.,2026-06-09,Pending
+1146,142,Testing & QA,Execute requirements gathering for project 142.,2026-10-17,Pending
+1147,117,Client Review,Execute documentation for project 117.,2026-03-04,Pending
+1148,115,Revisions,Execute revisions for project 115.,2026-01-07,Pending
+1149,147,Final Handover,Execute ui/ux wireframing for project 147.,2026-08-13,Completed
+1150,158,Backend Development,Execute final handover for project 158.,2026-05-02,Pending
+1151,106,Documentation,Execute testing & qa for project 106.,2026-11-20,Completed
+1152,159,Requirements Gathering,Execute revisions for project 159.,2026-09-04,Pending
+1153,152,UI/UX Wireframing,Execute revisions for project 152.,2026-08-30,Completed
+1154,157,Deployment,Execute final handover for project 157.,2026-03-09,Pending
+1155,119,Testing & QA,Execute final handover for project 119.,2026-09-04,Pending
+1156,175,Deployment,Execute client review for project 175.,2026-07-19,Completed
+1157,168,Documentation,Execute final handover for project 168.,2026-06-02,In Progress
+1158,156,UI/UX Wireframing,Execute documentation for project 156.,2026-06-21,Completed
+1159,128,Backend Development,Execute client review for project 128.,2026-02-20,In Progress
+1160,144,Revisions,Execute client review for project 144.,2026-02-19,Completed
+1161,154,UI/UX Wireframing,Execute deployment for project 154.,2026-05-18,Completed
+1162,155,Testing & QA,Execute deployment for project 155.,2026-09-24,Completed
+1163,120,UI/UX Wireframing,Execute ui/ux wireframing for project 120.,2026-07-10,In Progress
+1164,111,UI/UX Wireframing,Execute deployment for project 111.,2026-06-11,In Progress
+1165,117,Requirements Gathering,Execute final handover for project 117.,2026-03-10,Pending
+1166,172,Deployment,Execute ui/ux wireframing for project 172.,2026-12-11,Pending
+1167,153,Client Review,Execute requirements gathering for project 153.,2026-10-25,Completed
+1168,137,Testing & QA,Execute deployment for project 137.,2026-06-17,Completed
+1169,114,Documentation,Execute backend development for project 114.,2026-02-06,Pending
+1170,120,Backend Development,Execute ui/ux wireframing for project 120.,2026-07-10,In Progress
+1171,145,Documentation,Execute deployment for project 145.,2026-04-27,Completed
+1172,115,Final Handover,Execute backend development for project 115.,2026-01-06,In Progress
+1173,155,Documentation,Execute final handover for project 155.,2026-09-07,Completed
+1174,172,Final Handover,Execute testing & qa for project 172.,2026-12-28,Pending
+1175,104,Testing & QA,Execute deployment for project 104.,2026-06-08,In Progress
+1176,145,Frontend Development,Execute frontend development for project 145.,2026-05-24,Completed
+1177,173,Client Review,Execute ui/ux wireframing for project 173.,2026-01-18,Completed
+1178,119,Requirements Gathering,Execute ui/ux wireframing for project 119.,2026-08-14,Completed
+1179,168,Client Review,Execute revisions for project 168.,2026-06-05,In Progress
+1180,144,Deployment,Execute testing & qa for project 144.,2026-03-12,Completed
+1181,142,Final Handover,Execute ui/ux wireframing for project 142.,2026-09-23,Completed
+1182,107,Frontend Development,Execute final handover for project 107.,2026-05-14,Completed
+1183,107,UI/UX Wireframing,Execute testing & qa for project 107.,2026-04-27,Completed
+1184,157,Revisions,Execute final handover for project 157.,2026-02-18,In Progress
+1185,157,Backend Development,Execute documentation for project 157.,2026-02-26,In Progress
+1186,115,UI/UX Wireframing,Execute testing & qa for project 115.,2026-01-19,In Progress
+1187,163,Testing & QA,Execute requirements gathering for project 163.,2026-05-05,Completed
+1188,129,Final Handover,Execute requirements gathering for project 129.,2026-08-09,Completed
+1189,101,Testing & QA,Execute backend development for project 101.,2026-05-29,Completed
+1190,118,Testing & QA,Execute testing & qa for project 118.,2026-01-23,Completed
+1191,142,Revisions,Execute client review for project 142.,2026-10-14,Pending
+1192,123,Documentation,Execute backend development for project 123.,2026-02-06,In Progress
+1193,165,Deployment,Execute ui/ux wireframing for project 165.,2026-09-08,Completed
+1194,151,Requirements Gathering,Execute client review for project 151.,2026-08-27,Completed
+1195,103,Deployment,Execute final handover for project 103.,2026-05-28,Pending
+1196,155,Client Review,Execute client review for project 155.,2026-09-16,Completed
+1197,138,Requirements Gathering,Execute deployment for project 138.,2026-11-05,In Progress
+1198,122,Final Handover,Execute revisions for project 122.,2026-05-05,Completed
+1199,147,Client Review,Execute ui/ux wireframing for project 147.,2026-08-27,Completed
+1200,132,Client Review,Execute documentation for project 132.,2026-06-25,Completed
