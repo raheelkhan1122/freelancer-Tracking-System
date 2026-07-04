@@ -1,0 +1,315 @@
+/* =====================================================================
+   FPTS — assets/app.js
+   Vanilla JS only. Shared across index.php, clients.php, projects.php,
+   tasks.php, payments.php.
+   ===================================================================== */
+
+const STATUS_COLORS = {
+    'Pending':     { bg: '#FEF3C7', text: '#B45309', dot: '#F59E0B' },
+    'In Progress': { bg: '#EEF2FF', text: '#4338CA', dot: '#5B5CEB' },
+    'Completed':   { bg: '#DCFCE7', text: '#15803D', dot: '#22C55E' },
+    'Cleared':     { bg: '#DCFCE7', text: '#15803D', dot: '#22C55E' },
+    'Cancelled':   { bg: '#FEE2E2', text: '#B91C1C', dot: '#EF4444' },
+    'Failed':      { bg: '#FEE2E2', text: '#B91C1C', dot: '#EF4444' },
+    'Refunded':    { bg: '#EEF2FF', text: '#5B5CEB', dot: '#818CF8' }
+};
+
+/* ---------------------------------------------------------------------
+   1. API helper — one function for every HTTP verb
+--------------------------------------------------------------------- */
+async function apiRequest(method, url, body = null) {
+    try {
+        const options = { method, headers: { 'Content-Type': 'application/json' } };
+        if (body !== null) options.body = JSON.stringify(body);
+        const res = await fetch(url, options);
+        const json = await res.json();
+        return json;
+    } catch (err) {
+        console.error(`${method} ${url} failed:`, err);
+        return { success: false, message: 'Network error — check that XAMPP / Apache / MySQL are running.', data: [] };
+    }
+}
+const apiGet    = (url) => apiRequest('GET', url);
+const apiPost   = (url, body) => apiRequest('POST', url, body);
+const apiPut    = (url, body) => apiRequest('PUT', url, body);
+const apiDelete = (url) => apiRequest('DELETE', url);
+
+/* ---------------------------------------------------------------------
+   2. Small formatting helpers
+--------------------------------------------------------------------- */
+function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function formatMoney(n) {
+    const num = parseFloat(n) || 0;
+    return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function formatDate(d) {
+    if (!d) return '—';
+    const parts = d.split('-');
+    if (parts.length !== 3) return d;
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${parts[2]} ${months[parseInt(parts[1], 10) - 1]} ${parts[0]}`;
+}
+function debounce(fn, delay = 300) {
+    let timer;
+    return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); };
+}
+function statusBadge(status) {
+    const c = STATUS_COLORS[status] || { bg: '#F1F5F9', text: '#475569' };
+    return `<span class="badge" style="background:${c.bg};color:${c.text}">${escapeHtml(status)}</span>`;
+}
+function deadlineCell(dateStr, isOverdue) {
+    const formatted = formatDate(dateStr);
+    if (isOverdue) return `<span class="deadline-overdue">${formatted} <small>Overdue</small></span>`;
+    return formatted;
+}
+
+/* ---------------------------------------------------------------------
+   3. Table rendering + skeleton loading + empty states
+--------------------------------------------------------------------- */
+function skeletonRows(cols, rows = 5) {
+    let html = '';
+    for (let r = 0; r < rows; r++) {
+        html += '<tr class="skeleton-row">';
+        for (let c = 0; c < cols; c++) html += '<td><div class="skeleton-bar"></div></td>';
+        html += '</tr>';
+    }
+    return html;
+}
+function emptyStateRow(cols, icon, message) {
+    return `<tr class="empty-row"><td colspan="${cols}">
+        <div class="empty-state">
+            <div class="empty-icon">${icon}</div>
+            <p>${message}</p>
+        </div>
+    </td></tr>`;
+}
+function renderTable(bodyEl, rows, rowBuilder, cols, emptyIcon = '📭', emptyMsg = 'No records found') {
+    if (!rows || rows.length === 0) { bodyEl.innerHTML = emptyStateRow(cols, emptyIcon, emptyMsg); return; }
+    bodyEl.innerHTML = rows.map(rowBuilder).join('');
+}
+
+/* ---------------------------------------------------------------------
+   4. Modal system (open/close with fade + scale animation)
+--------------------------------------------------------------------- */
+function openModal(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.add('closing');
+    setTimeout(() => {
+        overlay.classList.remove('open');
+        overlay.classList.remove('closing');
+        document.body.style.overflow = '';
+    }, 200);
+}
+document.addEventListener('click', (e) => {
+    if (e.target.classList && e.target.classList.contains('modal-overlay') && e.target.classList.contains('open')) {
+        closeModal(e.target.id);
+    }
+});
+
+/* ---------------------------------------------------------------------
+   5. Toast notifications
+--------------------------------------------------------------------- */
+function showToast(message, type = 'success') {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+    const icons = { success: '✓', error: '✕', warning: '!' };
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `<span class="toast-icon">${icons[type] || icons.success}</span><span>${escapeHtml(message)}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('toast-hide');
+        setTimeout(() => toast.remove(), 250);
+    }, 3200);
+}
+
+/* ---------------------------------------------------------------------
+   6. Custom confirmation dialog (replaces browser confirm())
+--------------------------------------------------------------------- */
+function ensureConfirmDialog() {
+    if (document.getElementById('confirmOverlay')) return;
+    const div = document.createElement('div');
+    div.className = 'modal-overlay';
+    div.id = 'confirmOverlay';
+    div.innerHTML = `
+        <div class="modal modal-sm">
+            <div class="confirm-icon">⚠️</div>
+            <h3 id="confirmTitle">Are you sure?</h3>
+            <p id="confirmMessage" class="confirm-message"></p>
+            <div class="form-actions" style="justify-content:center">
+                <button class="btn btn-secondary" id="confirmCancelBtn">Cancel</button>
+                <button class="btn btn-danger" id="confirmOkBtn">Delete</button>
+            </div>
+        </div>`;
+    document.body.appendChild(div);
+}
+function showConfirm(message, onConfirm) {
+    ensureConfirmDialog();
+    document.getElementById('confirmMessage').textContent = message;
+    openModal('confirmOverlay');
+
+    const okBtn = document.getElementById('confirmOkBtn');
+    const cancelBtn = document.getElementById('confirmCancelBtn');
+    const newOk = okBtn.cloneNode(true);
+    okBtn.parentNode.replaceChild(newOk, okBtn);
+    const newCancel = cancelBtn.cloneNode(true);
+    cancelBtn.parentNode.replaceChild(newCancel, cancelBtn);
+
+    newOk.addEventListener('click', () => { closeModal('confirmOverlay'); onConfirm(); });
+    newCancel.addEventListener('click', () => closeModal('confirmOverlay'));
+}
+async function handleDelete(url, onSuccess, message = 'This action cannot be undone.') {
+    showConfirm(message, async () => {
+        const result = await apiDelete(url);
+        if (result.success) {
+            showToast(result.message || 'Deleted successfully', 'success');
+            if (typeof onSuccess === 'function') onSuccess();
+        } else {
+            showToast(result.message || 'Delete failed', 'error');
+        }
+    });
+}
+
+/* ---------------------------------------------------------------------
+   7. Loading spinner (full-panel overlay, used while a table is fetching)
+--------------------------------------------------------------------- */
+function showSpinner(containerEl) {
+    if (containerEl.querySelector('.spinner-overlay')) return;
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner-overlay';
+    spinner.innerHTML = '<div class="spinner"></div>';
+    containerEl.style.position = 'relative';
+    containerEl.appendChild(spinner);
+}
+function hideSpinner(containerEl) {
+    const spinner = containerEl.querySelector('.spinner-overlay');
+    if (spinner) spinner.remove();
+}
+
+/* ---------------------------------------------------------------------
+   8. Pagination renderer
+--------------------------------------------------------------------- */
+function renderPagination(container, pagination, onPageChange) {
+    const { page, totalPages, total } = pagination;
+    if (totalPages <= 1) { container.innerHTML = `<span class="pagination-info">${total} record${total === 1 ? '' : 's'}</span>`; return; }
+
+    let html = `<span class="pagination-info">Page ${page} of ${totalPages} · ${total} records</span><div class="pagination-buttons">`;
+    html += `<button class="btn btn-secondary btn-sm" ${page <= 1 ? 'disabled' : ''} data-page="${page - 1}">‹ Prev</button>`;
+
+    for (let p = 1; p <= totalPages; p++) {
+        if (p === 1 || p === totalPages || Math.abs(p - page) <= 1) {
+            html += `<button class="btn btn-sm ${p === page ? 'btn-primary' : 'btn-secondary'}" data-page="${p}">${p}</button>`;
+        } else if (Math.abs(p - page) === 2) {
+            html += `<span class="pagination-dots">…</span>`;
+        }
+    }
+    html += `<button class="btn btn-secondary btn-sm" ${page >= totalPages ? 'disabled' : ''} data-page="${page + 1}">Next ›</button>`;
+    html += `</div>`;
+    container.innerHTML = html;
+
+    container.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => onPageChange(parseInt(btn.dataset.page, 10)));
+    });
+}
+
+/* ---------------------------------------------------------------------
+   9. Canvas donut charts (pure Canvas, no libraries)
+   dataObj: { "Pending": 4, "Completed": 10, ... }
+--------------------------------------------------------------------- */
+function drawDonutChart(canvas, dataObj, legendEl) {
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const size = canvas.clientWidth;
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, size, size);
+
+    const entries = Object.entries(dataObj).filter(([, v]) => v > 0);
+    const total = entries.reduce((s, [, v]) => s + v, 0);
+    const cx = size / 2, cy = size / 2, radius = size / 2 - 10, innerRadius = radius * 0.6;
+
+    if (total === 0) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#F1F5F9';
+        ctx.fill();
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '13px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('No data yet', cx, cy);
+        if (legendEl) legendEl.innerHTML = '';
+        return;
+    }
+
+    let startAngle = -Math.PI / 2;
+    entries.forEach(([status, value]) => {
+        const sliceAngle = (value / total) * Math.PI * 2;
+        const color = (STATUS_COLORS[status] && STATUS_COLORS[status].dot) || '#94A3B8';
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, startAngle, startAngle + sliceAngle);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        startAngle += sliceAngle;
+    });
+
+    // Cut the donut hole
+    ctx.beginPath();
+    ctx.arc(cx, cy, innerRadius, 0, Math.PI * 2);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+
+    ctx.fillStyle = '#1E293B';
+    ctx.font = 'bold 20px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(total, cx, cy - 8);
+    ctx.font = '11px Inter, sans-serif';
+    ctx.fillStyle = '#94A3B8';
+    ctx.fillText('total', cx, cy + 12);
+
+    if (legendEl) {
+        legendEl.innerHTML = entries.map(([status, value]) => {
+            const color = (STATUS_COLORS[status] && STATUS_COLORS[status].dot) || '#94A3B8';
+            return `<div class="legend-item"><span class="legend-dot" style="background:${color}"></span>${escapeHtml(status)} <strong>${value}</strong></div>`;
+        }).join('');
+    }
+}
+
+/* ---------------------------------------------------------------------
+   10. Responsive sidebar toggle + live clock in the top navbar
+--------------------------------------------------------------------- */
+function initSidebarToggle() {
+    const toggleBtn = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    if (!toggleBtn || !sidebar) return;
+    toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+    sidebar.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => sidebar.classList.remove('open')));
+}
+function initTopbarClock() {
+    const el = document.getElementById('topbarDate');
+    if (!el) return;
+    const update = () => {
+        const now = new Date();
+        el.textContent = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    };
+    update();
+    setInterval(update, 60000);
+}
+document.addEventListener('DOMContentLoaded', () => { initSidebarToggle(); initTopbarClock(); });
